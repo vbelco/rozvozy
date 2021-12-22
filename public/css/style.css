@@ -2,3 +2,15 @@ table, th, td {
     border: 1px solid black;
     border-collapse: collapse;
 }
+
+
+.nav{
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+  
+.nav-item a{
+    float: left;
+}  
