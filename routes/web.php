@@ -13,6 +13,5 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', '\App\Http\Controllers\WelcomeController@welcome')->name('welcome');
+Route::get('/show/{rozvoz_id?}', '\App\Http\Controllers\RozvozController@show')->name('rozvoz');
