@@ -12,6 +12,6 @@ class ProductDescription extends Model
     //nazov tabulky
     protected $table = 'products_description';
     //nazov primarneho kluca
-    protected $primaryKey = 'products_id' ;
+    protected $primaryKey = 'products_id';
 
 }
