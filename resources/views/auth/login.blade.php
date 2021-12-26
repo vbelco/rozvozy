@@ -9,21 +9,22 @@
     <body>
 
     <h1>Login user</h1>
-    
+
     <form name="login-form" method="post" action="{{route('authenticate')}}">
+        @csrf
         <div class="form-group">
-            <label for="exampleInputEmail1">Username:</label>
-            <input type="text" name="email" class="form-control" required="">
+            <label>Username:</label>
+            <input type="text" name="username" class="form-control" required="">
         </div>
 
         <div class="form-group">
-            <label for="exampleInputEmail1">Password:</label>
+            <label>Password:</label>
             <input type="password" name="password" class="form-control" required="">
         </div>
 
         <button type="submit" class="btn btn-primary">Submit</button>
     </form>
-    
+
 </body>
 
 

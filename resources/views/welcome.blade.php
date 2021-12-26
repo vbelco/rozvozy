@@ -7,18 +7,19 @@
         <link href="{{ asset('/css/style.css') }}" rel="stylesheet">
     </head>
     <body>
-        <title>Rozvoz</title>
-            <div>
+        <div>
                 @if ( Auth::check() )
-                    {{ Form::open(array('route' =>'logout' )) }}
-                    {{ Form::submit('Logout', ['id' => 'logout-button']) }}
-                    {{ Form::close() }}
-
-                    {{--  Form::open(['method' => 'POST', 'action' => '\App\Http\Controllers\LoginController@logout']) --}}
+                    <form name="logout" method="post" action="{{ route('logout') }}" >
+                        @csrf
+                    <button type="submit" class="btn btn-primary">Logout</button>
+                    </form>
                 @else
                     <a href={{ route('login') }}><button>Login</button> </a>
                 @endif
-            </div>
+        </div>
+
+        @if ( Auth::check() )
+
             <div class="navigacia">
                 <ul class="nav">
                 @foreach ($rozvozy as $rozvoz_smer)
@@ -34,7 +35,6 @@
             <div>
                 @yield('content')
             </div>
-
-
+        @endif
     </body>
 </html>
