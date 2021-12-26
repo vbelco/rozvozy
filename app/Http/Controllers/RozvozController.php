@@ -11,9 +11,7 @@ class RozvozController extends Controller
         $rozvozy = Rozvoz::all(); //nacitanie si vsetkych typov rozvozov
         $rozvoz = Rozvoz::find($rozvoz_id); //nacitanie zoznamu pre konkretny rozvoz
 
-        $objednavky = $rozvoz->orders; //nacita si vsetky objednavky k danemu orders_statusu
-        
-        
+        $objednavky = $rozvoz->orders; //nacita si vsetky objednavky k danemu typu rozrozu, rozumej order_statusu
 
         return view('rozvoz', compact('rozvoz', 'rozvozy', 'objednavky'));
     }

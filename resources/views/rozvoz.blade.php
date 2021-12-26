@@ -8,7 +8,7 @@
             @foreach ($o->products as $p)
                 @if ( $p->baliky->count() == 0 )
                         <tr style='border-bottom:1px solid #5B2C6F;'>
-                        <td> {{ $o->orders_id }} </td>
+                        <td></td>    
                         <td> {{ $o->customers_name }} ,{{  $o->customers_city }}</td>
                         <td>{{ $p->description->products_name }}</td>
                         <td> Produkt nema baliky! </td>
@@ -18,9 +18,21 @@
                 @else
                     @foreach ( $p->baliky as $b )
                             <tr>
-                            <td> {{ $o->orders_id }} </td>
-                            <td> {{ $o->customers_name }} ,{{  $o->customers_city }}</td>
-                            <td> {{ $p->description->products_name }}</td>
+                            <td>
+                                @if ($b->viazana) {{-- ak je nazov balika viazany na objednavku --}}
+                                  {{ $o->orders_id }}   
+                                @endif 
+                            </td>
+                            <td>
+                                @if ($b->viazana) {{-- ak je nazov balika viazany na objednavku --}} 
+                                    {{ $o->customers_name }} ,{{  $o->customers_city }}
+                                @endif
+                            </td>
+                            <td>
+                                @if ($b->viazana) {{-- ak je nazov balika viazany na objednavku --}}  
+                                    {{ $p->description->products_name }}
+                                @endif
+                            </td>
                             <td>{{  $b->nazov }}</td>
                             <td></td>
                         </tr>
