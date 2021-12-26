@@ -15,3 +15,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', '\App\Http\Controllers\WelcomeController@welcome')->name('welcome');
 Route::get('/show/{rozvoz_id?}', '\App\Http\Controllers\RozvozController@show')->name('rozvoz');
+
+Route::get('/login', '\App\Http\Controllers\LoginController@login')->name('login');
+Route::post('/login', '\App\Http\Controllers\LoginController@authenticate')->name('authenticate');
+Route::post('/logout', '\App\Http\Controllers\LoginController@logout')->name('logout');

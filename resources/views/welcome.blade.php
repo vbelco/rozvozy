@@ -8,6 +8,17 @@
     </head>
     <body>
         <title>Rozvoz</title>
+            <div>
+                @if ( Auth::check() )
+                    {{ Form::open(array('route' =>'logout' )) }}
+                    {{ Form::submit('Logout', ['id' => 'logout-button']) }}
+                    {{ Form::close() }}
+
+                    {{--  Form::open(['method' => 'POST', 'action' => '\App\Http\Controllers\LoginController@logout']) --}}
+                @else
+                    <a href={{ route('login') }}><button>Login</button> </a>
+                @endif
+            </div>
             <div class="navigacia">
                 <ul class="nav">
                 @foreach ($rozvozy as $rozvoz_smer)
