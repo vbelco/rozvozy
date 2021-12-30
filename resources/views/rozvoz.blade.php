@@ -1,8 +1,17 @@
 @extends('welcome')
 @section('content')
 
-    <h1> Status: {{ $rozvoz->orders_status_id }}   {{ $rozvoz->orders_status_name }} </h1>
-
+    <table width="90%"><tr>
+        <td>
+            <h1> Status: {{ $rozvoz->orders_status_id }}   {{ $rozvoz->orders_status_name }} </h1>
+        </td>
+        <td align="right">
+            {!! QrCode::generate('localhost/10'); !!}
+        </td>
+        
+    </tr></table>
+    
+    
     <table class='table'>
     @foreach($objednavky as $o)
             @foreach ($o->products as $p)
