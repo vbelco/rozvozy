@@ -6,7 +6,7 @@
             <h1> Status: {{ $rozvoz->orders_status_id }}   {{ $rozvoz->orders_status_name }} </h1>
         </td>
         <td align="right">
-            {!! QrCode::generate('localhost/10'); !!}
+            {!! QrCode::generate('http://localhost/'.$rozvoz->orders_status_id  ); !!}
         </td>
         
     </tr></table>
